@@ -4,3 +4,4 @@
 4. [Circular Array Loop](https://leetcode.com/problems/circular-array-loop/)
 5. [Find Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)
 6. [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/description/)
+7. [Split Circular Linked List](https://leetcode.com/problems/split-a-circular-linked-list/description/)
