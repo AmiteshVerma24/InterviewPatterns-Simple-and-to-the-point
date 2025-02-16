@@ -22,17 +22,25 @@ Given an array of integers, we can reverse it **in-place** using two pointers:
 - The other pointer starts from the **end**.
 - Swap the elements at these pointers and move them towards each other until they meet in the middle.
 
-#### Code Example (Python)
-```python
-def reverse_array(arr):
-    left, right = 0, len(arr) - 1
-    while left < right:
-        arr[left], arr[right] = arr[right], arr[left]
-        left += 1
-        right -= 1
-    return arr
-
-print(reverse_array([1, 2, 3, 4, 5]))  # Output: [5, 4, 3, 2, 1]
+#### Code Example (Java)
+```java
+public class ReverseArray {
+    public static void reverseArray(int[] arr) {
+        int left = 0, right = arr.length - 1;
+        while (left < right) {
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+            left++;
+            right--;
+        }
+    }
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        reverseArray(arr);
+        System.out.println(Arrays.toString(arr)); // Output: [5, 4, 3, 2, 1]
+    }
+}
 ```
 
 ### 2. Checking If a String is a Palindrome
@@ -42,19 +50,25 @@ A palindrome reads the same forward and backward. We can check this using two po
 - The other pointer starts at the **end**.
 - Compare characters at both pointers and move them inward.
 
-#### Code Example (Python)
-```python
-def is_palindrome(s):
-    left, right = 0, len(s) - 1
-    while left < right:
-        if s[left] != s[right]:
-            return False
-        left += 1
-        right -= 1
-    return True
-
-print(is_palindrome("racecar"))  # Output: True
-print(is_palindrome("hello"))    # Output: False
+#### Code Example (Java)
+```java
+public class PalindromeCheck {
+    public static boolean isPalindrome(String s) {
+        int left = 0, right = s.length() - 1;
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        System.out.println(isPalindrome("racecar")); // Output: true
+        System.out.println(isPalindrome("hello"));   // Output: false
+    }
+}
 ```
 
 ### 3. Finding a Pair with a Given Sum in a Sorted Array
@@ -65,21 +79,30 @@ Given a **sorted array** and a target sum, find two numbers that add up to the s
 - If the sum is **greater**, move the right pointer **left**.
 - Stop when the target sum is found.
 
-#### Code Example (Python)
-```python
-def find_pair_with_sum(arr, target):
-    left, right = 0, len(arr) - 1
-    while left < right:
-        current_sum = arr[left] + arr[right]
-        if current_sum == target:
-            return (arr[left], arr[right])
-        elif current_sum < target:
-            left += 1
-        else:
-            right -= 1
-    return None
-
-print(find_pair_with_sum([1, 2, 3, 4, 6], 6))  # Output: (2, 4)
+#### Code Example (Java)
+```java
+public class PairWithSum {
+    public static int[] findPairWithSum(int[] arr, int target) {
+        int left = 0, right = arr.length - 1;
+        while (left < right) {
+            int currentSum = arr[left] + arr[right];
+            if (currentSum == target) {
+                return new int[]{arr[left], arr[right]};
+            } else if (currentSum < target) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return new int[]{}; // Return empty array if no pair is found
+    }
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 6};
+        int target = 6;
+        int[] result = findPairWithSum(arr, target);
+        System.out.println(Arrays.toString(result)); // Output: [2, 4]
+    }
+}
 ```
 
 ## When to Use the Two Pointers Pattern
@@ -109,4 +132,3 @@ The **Two Pointers** pattern is a powerful and efficient approach to solving pro
 - Used in **string processing, searching, and memory management**.
 
 Mastering the **Two Pointers** pattern will help you efficiently tackle many algorithmic challenges!
-
